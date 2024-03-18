@@ -8,5 +8,5 @@ _start:
     
     or a3, a1, a2; 
 
-    sw a3, 64(zero);
+    sw a3, 60(zero);
     

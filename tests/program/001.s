@@ -6,5 +6,5 @@ _start:
     addi a1, zero, 5; # a1 = zero + 5
     add a1, zero, a1;
 
-    sw a1, 64(zero);
+    sw a1, 60(zero);
     
