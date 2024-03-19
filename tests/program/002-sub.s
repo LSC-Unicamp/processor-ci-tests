@@ -3,11 +3,9 @@
 .global _start;
 
 _start:
-    addi a1, zero, 5; # a1 = zero + 5
+    addi a1, zero, 15; # a1 = zero + 15
 
-    add a2, zero, a1;
-    add a1, zero, a1;
-    add a1, zero, a1;
+    addi a2, zero, 5;
 
     sub a3, a1, a2;
 
