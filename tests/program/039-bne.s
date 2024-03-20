@@ -6,7 +6,7 @@ _start:
     addi a1, zero, 1;
     addi a2, zero, 2;
 
-    beq a1, a1, desvio;
+    bne a1, a1, desvio;
 
     addi a3, zero, 10;
 

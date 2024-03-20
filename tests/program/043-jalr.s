@@ -5,8 +5,10 @@
 _start:
     addi a3, zero, 3;
     add a3, a3, a3;
+
+    la a7, subrotina;
     
-    jal ra, subrotina;
+    jalr ra, a7, 0;
 
     addi a4, zero, 7;
 
