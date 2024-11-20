@@ -1,16 +1,15 @@
 import os
-import sys
 
 current_path = os.getcwd()
-page_size = 16
+PAGE_SIZE = 16
 files = os.listdir(f"{current_path}/memory/")
 references = os.listdir(f"{current_path}/reference/")
-memory_file = "memory.hex"
-reference_file = "reference.hex"
+MEMORTY_FILE = "memory.hex"
+REFERENCE_FILE = "reference.hex"
 
 
 def generate_reference_file() -> None:
-    file = open(reference_file, "w")
+    file = open(REFERENCE_FILE, "w")
 
     for i in references:
         temp_file = open(f"{current_path}/reference/{i}", "r")
@@ -24,7 +23,7 @@ def generate_reference_file() -> None:
 
 
 def generate_memory_file() -> None:
-    file = open(memory_file, "w")
+    file = open(MEMORTY_FILE, "w")
 
     for i in files:
         temp_file = open(f"{current_path}/memory/{i}", "r")

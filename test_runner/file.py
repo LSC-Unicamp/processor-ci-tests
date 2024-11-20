@@ -1,6 +1,7 @@
 import os
 import glob
 
+
 def read_file(name):
     if not os.path.isfile(name):
         raise FileNotFoundError(f"Error: The file '{name}' was not found.")
@@ -10,19 +11,17 @@ def read_file(name):
             data.append(int(line.replace("\n", ""), 16))
     return data, len(data)
 
+
 def read_files_in_dir(path):
     try:
-        return [
-            read_file(file)
-            for file in glob.glob(f"{path}/*.hex", recursive=True)
-        ]
+        return [read_file(file) for file in glob.glob(f"{path}/*.hex", recursive=True)]
     except FileNotFoundError:
         print(f"Error: The directory '{path}' was not found.")
         return []
     except Exception as e:
         print(f"Error: {e}")
         return []
-    
+
 
 # return a list of all the paths with a directory named 'memory' in the path
 def list_find_paths(path):
