@@ -3,24 +3,31 @@
 # of the tests in that folder the XML files are saved in the test-reports directory with the name
 # results_{test_path_name}_{timestamp}.xml
 
+#test_extensão_tipo_timestamp.xml
+
 import os
-from processor_ci_communication.core.serial import ProcessorCIInterface
-import test_runner.file as f
+import file as f
+
 
 
 class Verificator:
     def __init__(self, path):
         self.path = path
-        self.interface = ProcessorCIInterface()
-        self.interface.open()
+        #self.interface = ProcessorCIInterface()
+        #self.interface.open()
+
 
     def run_tests(self):
-        paths = f.get_all_test_paths(self.path)
+        tests = []
+        paths = f.list_find_paths(self.path)
         print(paths)
+        for path in paths:
+            tests.append(f.read_files_in_dir(path))
+        print(tests)
 
 
 def main():
-    verifier = Verificator("C:/Users/Usuario/Documents/processor-ci-tests/test_runner")
+    verifier = Verificator("/eda/processor-ci-tests/test_runner/testing_testes")
     verifier.run_tests()
     return 0
 

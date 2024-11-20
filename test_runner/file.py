@@ -14,7 +14,9 @@ def read_file(name):
 
 def read_files_in_dir(path):
     try:
-        return [read_file(file) for file in glob.glob(f"{path}/*.hex", recursive=True)]
+        file = [read_file(file) for file in glob.glob(f"{path}/*.hex", recursive=True)]
+        file.append(path)
+        return file
     except FileNotFoundError:
         print(f"Error: The directory '{path}' was not found.")
         return []
@@ -25,7 +27,7 @@ def read_files_in_dir(path):
 
 # return a list of all the paths with a directory named 'memory' in the path
 def list_find_paths(path):
-    return [
+    return {
         os.path.dirname(file)
         for file in glob.glob(f"{path}/**/memory/*.hex", recursive=True)
-    ]
+    }
