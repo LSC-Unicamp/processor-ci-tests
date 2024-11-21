@@ -5,29 +5,47 @@
 
 #test_extensão_tipo_timestamp.xml
 
-import os
-import file as f
+# Adiciona o diretório raiz do projeto ao sys.path
 
+
+import os
+import sys
+import file as f
+import argparse
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
+
+from processor_ci_communication.core.serial import ProcessorCIInterface
 
 
 class Verificator:
-    def __init__(self, path):
+    def __init__(self, path, port, baudrate, timeout):
         self.path = path
-        #self.interface = ProcessorCIInterface()
-        #self.interface.open()
+        self.interface = ProcessorCIInterface(port, baudrate, timeout)
 
 
     def run_tests(self):
         tests = []
         paths = f.list_find_paths(self.path)
-        print(paths)
+        #print(paths)
         for path in paths:
             tests.append(f.read_files_in_dir(path))
-        print(tests)
+        #print(tests)
 
 
+
+#default to test:
+#python3 verificator.py -p /dev/ttyACM0 -b 115200 -t 2
 def main():
-    verifier = Verificator("/eda/processor-ci-tests/test_runner/testing_testes")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", "-p", type=str, help="Porta de comunicação", required=True)
+    parser.add_argument("--baudrate", "-b", type=int, help="Baudrate de comunicação", required=True)
+    parser.add_argument("--timeout", "-t", type=int, help="Timeout de comunicação", required=True)
+    args = parser.parse_args()
+
+    verifier = Verificator("/home/victor/processor_ci/processor-ci-tests/test_runner/testing_testes", args.port, args.baudrate, args.timeout)
     verifier.run_tests()
     return 0
 

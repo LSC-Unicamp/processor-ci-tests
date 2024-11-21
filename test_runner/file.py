@@ -14,9 +14,28 @@ def read_file(name):
 
 def read_files_in_dir(path):
     try:
-        file = [read_file(file) for file in glob.glob(f"{path}/*.hex", recursive=True)]
-        file.append(path)
-        return file
+        if path.endswith("/memory"):
+            path = path[:-7]  # Remove the '/memory' suffix
+        print("path: ", path)
+        files = []
+
+        file_test = []
+        for entry in os.scandir(f"{path}/memory"):
+            if entry.is_file() and entry.name.endswith(".hex"):
+                file_test.append(read_file(entry.path))
+
+        file_answer = []
+        for entry in os.scandir(f"{path}/reference"):
+            if entry.is_file() and entry.name.endswith(".hex"):
+                file_answer.append(read_file(entry.path))
+
+        print("Files in reference directory: ", [entry.path for entry in os.scandir(path) if entry.is_dir()])
+        print("teste: ", file_test)
+        print("resposta: ", file_answer)
+        files.append(file_test)
+        files.append(file_answer)
+        files.append(path)
+        return files
     except FileNotFoundError:
         print(f"Error: The directory '{path}' was not found.")
         return []
