@@ -16,7 +16,6 @@ def read_files_in_dir(path):
     try:
         if path.endswith("/memory"):
             path = path[:-7]  # Remove the '/memory' suffix
-        print("path: ", path)
         files = []
 
         file_test = []
@@ -29,9 +28,6 @@ def read_files_in_dir(path):
             if entry.is_file() and entry.name.endswith(".hex"):
                 file_answer.append(read_file(entry.path))
 
-        print("Files in reference directory: ", [entry.path for entry in os.scandir(path) if entry.is_dir()])
-        print("teste: ", file_test)
-        print("resposta: ", file_answer)
         files.append(file_test)
         files.append(file_answer)
         files.append(path)
