@@ -85,10 +85,10 @@ def main():
     
     verifier = Verificator("/home/victor/processor_ci/processor-ci-tests/test_runner/testing_testes", args.port, args.baudrate, args.timeout)
     
-    with open(f"{verifier.path}/results.xml", 'w') as report:
-        report.write("<testsuite>\n")
-        verifier.run_tests()
-        report.write("</testsuite>\n")
+    #with open(f"{verifier.path}/results.xml", 'w') as report:
+    #    report.write("<testsuite>\n")
+    verifier.run_tests()
+    #    report.write("</testsuite>\n")
     return 0
 
 
