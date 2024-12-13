@@ -1,0 +1,1 @@
+# amoadd.w implementation
