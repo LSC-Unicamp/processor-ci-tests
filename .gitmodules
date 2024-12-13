@@ -1,0 +1,3 @@
+[submodule "third_party_repositories/ACStone"]
+	path = third_party_repositories/ACStone
+	url = https://github.com/rjazevedo/ACStone
