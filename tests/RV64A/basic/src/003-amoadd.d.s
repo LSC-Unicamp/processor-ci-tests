@@ -1,0 +1,1 @@
+# amoadd.d implementation

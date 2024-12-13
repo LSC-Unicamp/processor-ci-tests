@@ -1,1 +1,0 @@
-# amoor advanced implementation

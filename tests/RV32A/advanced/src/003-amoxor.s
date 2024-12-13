@@ -1,1 +1,0 @@
-# amoxor advanced implementation

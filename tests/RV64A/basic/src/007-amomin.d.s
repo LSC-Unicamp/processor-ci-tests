@@ -1,0 +1,1 @@
+# amomin.d implementation

@@ -1,1 +1,0 @@
-# fsqrt advanced implementation

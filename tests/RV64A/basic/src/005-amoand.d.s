@@ -1,0 +1,1 @@
+# amoand.d implementation

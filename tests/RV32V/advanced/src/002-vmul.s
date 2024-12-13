@@ -1,1 +1,0 @@
-# vmul advanced implementation

@@ -1,1 +1,0 @@
-# ddiv advanced implementation

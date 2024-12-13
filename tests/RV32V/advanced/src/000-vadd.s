@@ -1,1 +1,0 @@
-# vadd advanced implementation

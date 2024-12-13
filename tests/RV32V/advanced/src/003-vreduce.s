@@ -1,1 +1,0 @@
-# vreduce advanced implementation

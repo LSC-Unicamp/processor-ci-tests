@@ -1,1 +1,0 @@
-# amoadd advanced implementation

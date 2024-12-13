@@ -1,0 +1,1 @@
+# amoswap.d implementation
